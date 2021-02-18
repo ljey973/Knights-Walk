@@ -5,7 +5,7 @@ from src.Piece.knight import Knight
 
 class ChessSquareView(Frame):
 
-    def __init__(self, chess_board, x_coordinate, y_coordinate):
+    def __init__(self, chess_board, x_coordinate, y_coordinate,knight_flag):
         super().__init__()
         self.__rectangle_positions = {
             "x_coordinate": x_coordinate,
@@ -14,7 +14,7 @@ class ChessSquareView(Frame):
         self.__board = chess_board
         self.__colour = self.__determine_colour()
         self.__square = self.draw_square()
-        self.__num_clicked = 0
+        self.__is_knight_present = knight_flag
 
     def draw_square(self):
         self.pixel = PhotoImage(width=1, height=1)
@@ -33,15 +33,16 @@ class ChessSquareView(Frame):
             return Colour.BLACK.value
 
     def change_endpoint(self):
-        if self.__piece is not None:
-            self.__num_clicked += 1
+        if self.__is_knight_present is True:
+            self.__board.increment_num_clicked()
 
-        elif self.__num_clicked >= 1:
-            self.__board.change_change_knight_position(self.__rectangle_positions)
-            self.__num_clicked = 0
+        elif self.__board.get_num_clicked() >= 1:
+            self.__board.change_knight_position(self.__rectangle_positions)
+            self.__board.reset_num_clicked()
+
         else:
-            self.__square.config(bg="red")
             self.__board.change_endpoints(self.__rectangle_positions)
+            self.__square.config(bg="red")
 
     def remove_endpoint(self):
         self.__square.config(bg=self.__colour)
@@ -50,9 +51,14 @@ class ChessSquareView(Frame):
         image = Knight(0, 0).return_image()
         self.__square.config(image=image)
         self.__square.image = image
+        self.set_knight_flag(True)
 
     def remove_knight(self):
         self.__square.config(image=self.pixel)
+        self.set_knight_flag(False)
 
     def get_position(self):
         return self.__rectangle_positions
+
+    def set_knight_flag(self,knight_flag):
+        self.__is_knight_present = knight_flag

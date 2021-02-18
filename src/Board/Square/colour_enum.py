@@ -5,3 +5,4 @@ from enum import Enum, unique
 class Colour(Enum):
     WHITE = "white"
     BLACK = "black"
+    ENDPOINT = "red"

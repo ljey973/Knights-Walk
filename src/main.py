@@ -1,12 +1,14 @@
 import tkinter as tk
+from src.Algorithms.Endpoint.endpoint import Endpoint
 from src.Board.chess_board import ChessBoard
 from src.Piece.knight import Knight
 
 
 def main():
     window = tk.Tk()
-    ChessBoard()
-    Knight(0,0)
+    knight = Knight(0, 0)
+    endpoint = Endpoint(None,None)
+    ChessBoard(knight,endpoint).initial_knight()
     window.mainloop()
 
 

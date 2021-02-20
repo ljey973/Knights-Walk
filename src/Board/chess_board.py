@@ -46,3 +46,6 @@ class ChessBoard:
 
     def get_num_clicked(self):
         return self.__num_clicked
+
+    def colour_path(self,x,y):
+        self.__board[x][y].change_colour()

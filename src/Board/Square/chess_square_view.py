@@ -62,3 +62,6 @@ class ChessSquareView(Frame):
 
     def set_knight_flag(self,knight_flag):
         self.__is_knight_present = knight_flag
+
+    def change_colour(self):
+        self.__square.config(bg="blue")

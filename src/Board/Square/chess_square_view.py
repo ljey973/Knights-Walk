@@ -42,7 +42,7 @@ class ChessSquareView(Frame):
 
         else:
             self.__board.change_endpoints(self.__rectangle_positions)
-            self.__square.config(bg="red")
+            self.change_endpoint_colour()
 
     def remove_endpoint(self):
         self.__square.config(bg=self.__colour)
@@ -65,3 +65,6 @@ class ChessSquareView(Frame):
 
     def change_colour(self):
         self.__square.config(bg="blue")
+
+    def change_endpoint_colour(self):
+        self.__square.config(bg="red")

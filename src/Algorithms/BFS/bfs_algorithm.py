@@ -23,9 +23,7 @@ class BFSAlgorithm:
     def __get_path(self, node):
         if node.get_parent() is None:
             self.__path.append((node.get_x(), node.get_y()))
-            print(self)
-            for node in self.__path:
-                self.__board.colour_path(node[0], node[1])
+            self.__board.colour_path(self.__path)
             return
         else:
             self.__path.append((node.get_x(), node.get_y()))
@@ -46,7 +44,6 @@ class BFSAlgorithm:
             self.__visiting_queue.get()
 
             if current_node.get_x() == x_endpoint and current_node.get_y() == y_endpoint:
-                print("yes")
                 self.__get_path(current_node)
                 return
 

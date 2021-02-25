@@ -4,6 +4,7 @@ from src.Algorithms.BFS.bfs_button import BFSButton
 from src.Board.chess_board import ChessBoard
 from src.Piece.knight import Knight
 from src.Algorithms.DFS.dfs_button import DFSButton
+from src.Algorithms.Dijkstra.dijkstra_button import DijkstraButton
 
 
 def main():
@@ -14,6 +15,7 @@ def main():
     board.initial_knight()
     BFSButton(knight,endpoint,board)
     DFSButton(knight,endpoint,board)
+    DijkstraButton(knight,endpoint,board)
     window.mainloop()
 
 

@@ -9,7 +9,7 @@ class DijkstraButton(Frame):
         self.__knight = knight
         self.__endpoint = endpoint
         self.__board = board
-        self.__button = Button(width=5, height=1,bg="blue",command=self.initiate_dijkstra_algorithm)
+        self.__button = Button(width=5, height=1,bg="white",command=self.initiate_dijkstra_algorithm,text="Dijkstra")
         self.__button.grid(row=9, column=2)
         self.grid(row=9, column=2)
 

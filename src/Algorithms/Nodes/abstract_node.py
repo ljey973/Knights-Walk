@@ -1,4 +1,6 @@
-class Node():
+from abc import ABC
+
+class AbstractNode(ABC):
 
     def __init__(self, x, y, parent):
         self.__x = x

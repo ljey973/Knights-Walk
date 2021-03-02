@@ -9,7 +9,7 @@ class BFSButton(Frame):
         self.__knight = knight
         self.__endpoint = endpoint
         self.__board = board
-        self.__button = Button(width=5, height=1,bg="blue",command=self.initiate_bfs_algorithm)
+        self.__button = Button(width=5, height=1,bg="white",command=self.initiate_bfs_algorithm,text="BFS")
         self.__button.grid(row=9, column=0)
         self.grid(row=9, column=0)
 
